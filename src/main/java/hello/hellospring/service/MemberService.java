@@ -11,9 +11,26 @@ public class MemberService {
 
     // MemberService의 생성자(클래스랑 이름 같게), 매개변수가 있는 생성자
     // Dependency Injection, DI 외부에서 넣어줌..
+
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
+
+//    //만약 Setter Injection
+//    private MemberRepository memberRepository;
+//
+//    @Autowired
+//    public void setMemberRepository(MemberRepository memberRepository) {
+//        this.memberRepository = memberRepository;
+//    }
+
+    //
+//    // MemberService의 생성자(클래스랑 이름 같게), 매개변수가 있는 생성자
+//    // Dependency Injection, DI 외부에서 넣어줌..
+//    public MemberService(MemberRepository memberRepository) {
+//        this.memberRepository = memberRepository;
+//    }
+
 
     // 회원 가입
     public Long join(Member member) {
