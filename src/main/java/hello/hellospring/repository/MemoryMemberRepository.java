@@ -1,12 +1,10 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
-import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
 // 아래 MemoryMemberRepository를 테스트 할 것임.
-@Repository
 public class MemoryMemberRepository implements MemberRepository{ // 옵션 엔터
 
     private static Map<Long, Member> store = new HashMap<>();
