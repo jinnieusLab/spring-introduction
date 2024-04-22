@@ -21,7 +21,7 @@ class MemberServiceIntegrationTest {
     void 회원가입() {
         //given <- 주어진 데이터 기반
         Member member = new Member();
-        member.setName("spring");
+        member.setName("spring200");
         // 얘도 이름이 spring이라면 당연히 안될 것. 왜냐면 데이터 쌓여서 join X -> 메모리 리포지토리 clear의 중요성
         // 데이터 clear 구현해주면 이름 spring이어도 괜찮음.
 
