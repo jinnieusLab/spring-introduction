@@ -35,11 +35,25 @@ public class MemberService {
 
 
     // 회원 가입
-    public Long join(Member member) {
-        //같은 이름이 있는 중복 회원X
-        validateDuplicateMember(member); //중복 회원 검증
-        memberRepository.save(member);
-        return member.getId();
+//    public Long join(Member member) {
+//        //같은 이름이 있는 중복 회원X
+//        validateDuplicateMember(member); //중복 회원 검증
+//        memberRepository.save(member);
+//        return member.getId();
+//    }
+    public Long join(Member member){
+
+        long start = System.currentTimeMillis();
+
+        try {
+            validateDuplicateMember(member);
+            memberRepository.save(member);
+            return member.getId();
+        } finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("join = " + timeMs + "ms");
+        }
     }
 
     private void validateDuplicateMember(Member member) {
@@ -49,7 +63,7 @@ public class MemberService {
                 });
     }
 
-    // 전체 회원 조회 -> MemberRepository의 findAll(타입 List)
+    // 전체 회원 조회 -> MemberRepository의 findAll(타입 List) 회원 목록 눌렀을때
     public List<Member> findMembers() {
         return memberRepository.findAll();
     }
